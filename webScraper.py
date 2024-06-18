@@ -41,14 +41,15 @@ class webCrawler:
         try:
             school_name = container_div.find("h1").text.strip()
             location = container_div.find("h4").text.strip()
+            sector =  container_div.find("p", {"class": "d-inline float-left"}).text.strip()
             address = container_div.find("span", {"class": "map-address load-address"}).text.strip()
-            return {"School name": school_name, "Location": location, "Address": address}
+            return {"School name": school_name, "Location": location, "Address": address, "Sector": sector, "Academic results": academic_results}
         except Exception as e:
             print(f"Error extracting school details: {e}")
             return None
 
     def write_to_csv(self, data, filename="schools.csv"):
-        fields = ["School name", "Location", "Address"]
+        fields = ["School name", "Location", "Address","Sector", "Academic results"]
         with open(filename, mode='w', newline='') as file:
             writer = csv.DictWriter(file, fieldnames=fields)
             writer.writeheader()
