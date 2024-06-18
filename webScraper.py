@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
-
 class webCrawler:
     def start_web_crawler(self, url):
         web_request = requests.get(url)
@@ -43,7 +42,23 @@ class webCrawler:
             location = container_div.find("h4").text.strip()
             sector =  container_div.find("p", {"class": "d-inline float-left"}).text.strip()
             address = container_div.find("span", {"class": "map-address load-address"}).text.strip()
+
+            academic_results_div = soup.find("div", class_="col-md-6 col-sm-6 col-6")
+    
+            scores_40_plus = academic_results_div.find_all("p")[0].find("span", class_="font-weight-bold").text.strip()
+            median_score = academic_results_div.find_all("p")[1].find("span", class_="font-weight-bold").text.strip()
+            vce_completions = academic_results_div.find_all("p")[2].find("span", class_="font-weight-bold").text.strip()
+            vet_completions = academic_results_div.find_all("p")[3].find("span", class_="font-weight-bold").text.strip()
+    
+            academic_results = {
+                "Scores of 40+": scores_40_plus,
+                "Median Score": median_score,
+                "Satisfactory completions of VCE": vce_completions,
+                "Satisfactory completions of VET": vet_completions
+            }
+
             return {"School name": school_name, "Location": location, "Address": address, "Sector": sector, "Academic results": academic_results}
+        
         except Exception as e:
             print(f"Error extracting school details: {e}")
             return None
