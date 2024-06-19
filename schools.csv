@@ -1,1 +1,51 @@
-School name,Location,Address,Sector,Academic results
+School Name,Location,Address,Sector,Scores of 40+,Median Score,Satisfactory completions of VCE,Satisfactory completions of VET
+Catholic Regional College Sydenham,"Sydenham VIC, Melbourne Western Suburbs",380 Sydenham Rd Sydenham Victoria 3037,Catholic,2%,27,99%,85%
+Mullauna College,"Mitcham VIC, Melbourne Eastern Suburbs",456 Springfield Rd Mitcham Victoria 3132,Government,5%,31,87%,79%
+St Columba's College,"Essendon VIC, Melbourne Western Suburbs",2 Leslie Rd Essendon Victoria 3040,Catholic,8%,31,100%,90%
+John Monash Science School,"Monash University VIC, Melbourne Eastern Suburbs",39 Innovation Walk Monash University Victoria 3800,Government,22%,35,99%,100%
+Lilydale High School,"Lilydale VIC, Melbourne Eastern Suburbs",25 Melba Ave Lilydale Victoria 3140,Government,2%,28,96%,65%
+St Aloysius College,"North Melbourne VIC, Melbourne City Central",31 Curran St North Melbourne Victoria 3051,Catholic,9%,30,100%,100%
+St Mary's College,"St Kilda East VIC, Melbourne Southern Suburbs & Western Port",11 Westbury Street St Kilda East Victoria 3183,Catholic,6%,31,99%,58%
+Academy of Mary Immaculate,"Fitzroy VIC, Melbourne City Central",88 Nicholson St Fitzroy Victoria 3065,Catholic,10%,31,99%,98%
+Ave Maria College,"Aberfeldie VIC, Melbourne Western Suburbs",14-22 Vida St Aberfeldie Victoria 3040,Catholic,7%,31,100%,91%
+Nazareth College,"Noble Park North VIC, Melbourne Southern Suburbs & Western Port",Manning Drive Noble Park North Victoria 3174,Catholic,4%,28,98%,78%
+North Geelong Secondary College,"North Geelong VIC, Barwon-South Western",130 Separation St North Geelong Victoria 3215,Government,4%,28,100%,85%
+SEDA College Victoria,"Camberwell VIC, Melbourne Eastern Suburbs",Suite 1A 357 Camberwell Road Camberwell Victoria 3124,Independent,,,100%,95%
+St Monica's College - Epping,"Epping VIC, Melbourne City Central",400 Dalton Road Epping Victoria 3076,Catholic,4%,28,100%,94%
+Brentwood Secondary College,"Glen Waverley VIC, Melbourne Eastern Suburbs",65-71 Watsons Rd Glen Waverley Victoria 3150,Government,5%,30,99%,87%
+Camberwell High School,"Canterbury VIC, Melbourne Eastern Suburbs",Prospect Hill Rd Canterbury Victoria 3126,Government,5%,29,100%,91%
+Hume Central Secondary College,"Broadmeadows VIC, Melbourne Northern Suburbs",Blair Street (7-9) Campus; 64-70 Blair Street Broadmeadows Victoria 3047,Government,1%,26,99%,63%
+Luther College,"Croydon Hills VIC, Melbourne Eastern Suburbs",1 - 39 Plymouth Rd Croydon Hills Victoria 3136,Independent,12%,32,100%,94%
+Mill Park Secondary College,"Epping VIC, Melbourne Northern Suburbs",9-25 Moorhead Drive Mill Park Victoria 3082,Government,2%,26,97%,73%
+Mount St Joseph Girls' College,"Altona VIC, Melbourne Western Suburbs",133 Maidstone St Altona Victoria 3018,Catholic,8%,30,99%,98%
+Nossal High School,"Berwick VIC, Melbourne Southern Suburbs & Western Port",40 Sir Gustav Nossal Blvd Berwick Victoria 3806,Government,27%,36,100%,63%
+Sacred Heart Girls' College,"Hughesdale VIC, Melbourne Eastern Suburbs",113 Warrigal Rd Hughesdale Victoria 3166,Catholic,8%,32,100%,97%
+Essendon Keilor College,"Essendon VIC, Melbourne Western Suburbs",82 Quinn Gr Keilor East Victoria 3033,Government,2%,25,94%,65%
+Loreto College Ballarat,"Ballarat VIC, Central Highlands-Wimmera",1600 Sturt St Ballarat Victoria 3350,Catholic,6%,31,100%,97%
+Loyola College,"Watsonia VIC, Melbourne Northern Suburbs",325 Grimshaw Street Watsonia Victoria 3087,Catholic,3%,30,100%,94%
+MacKillop College Werribee,"Werribee VIC, Melbourne Western Suburbs",1-29 Russell St Werribee Victoria 3030,Catholic,6%,31,100%,86%
+Marian College,"Sunshine West VIC, Melbourne Western Suburbs",196 Glengala Rd Sunshine West Victoria 3020,Catholic,5%,29,99%,92%
+Santa Maria College,"Northcote VIC, Melbourne Northern Suburbs",50 Separation St Northcote Victoria 3070,Catholic,7%,30,100%,96%
+Victoria University Secondary College,"Deer Park VIC, Melbourne Western Suburbs",88 Billingham Road Deer Park Victoria 3023,Government,6%,29,98%,95%
+Viewbank College,"Rosanna VIC, Melbourne Northern Suburbs",Warren Rd Rosanna Victoria 3084,Government,8%,31,97%,100%
+Alia College,"Hawthorn East VIC, Melbourne Eastern Suburbs",405 Tooronga Rd Hawthorn East Victoria 3123,Independent,,24,100%,
+Alkira Secondary College,"Cranbourne North VIC, Melbourne Southern Suburbs & Western Port",15 Nurture Avenue Cranbourne North Victoria 3977,Government,5%,29,98%,78%
+Ararat College,"Ararat VIC, Central Highlands-Wimmera",4-30 Barkly St Ararat Victoria 3377,Government,,27,94%,100%
+Bacchus Marsh College,"Bacchus Marsh VIC, Central Highlands-Wimmera",Grant St Bacchus Marsh Victoria 3340,Government,1%,25,93%,44%
+Bayview College,"Portland VIC, Barwon-South Western",119 Bentinck St Portland Victoria 3305,Independent,5%,28,100%,84%
+Beechworth Secondary College,"Beechworth VIC, Goulburn-North Eastern",85 Balaclava Rd Beechworth Victoria 3747,Government,,26,100%,70%
+Bellarine Secondary College,"Drysdale VIC, Barwon-South Western",Peninsula Dr Drysdale Victoria 3222,Government,3%,28,99%,76%
+Blackburn High School,"Blackburn VIC, Melbourne Eastern Suburbs",60 Springfield Rd Blackburn Victoria 3130,Government,7%,30,99%,68%
+Box Hill High School,"Box Hill VIC, Melbourne Eastern Suburbs",1180 Whitehorse Rd Box Hill Victoria 3128,Government,9%,30,94%,91%
+Brighton Secondary College,"Brighton East VIC, Melbourne Southern Suburbs & Western Port",120 Marriage Rd Brighton East Victoria 3187,Government,11%,31,97%,87%
+Catholic College Sale,"Sale VIC, Gippsland",Cnr York St and Raglan St Sale Victoria 3850,Catholic,7%,28,99%,97%
+Diamond Valley College,"Diamond Creek VIC, Melbourne Northern Suburbs",165-179 Main Hurstbridge Rd Diamond Creek Victoria 3089,Government,2%,26,98%,68%
+Dimboola Memorial Secondary College,"Dimboola VIC, Central Highlands-Wimmera",66 Ellerman St Dimboola Victoria 3414,Government,,28,100%,89%
+Drouin Secondary College,"Drouin VIC, Gippsland",52 South Rd Drouin Victoria 3818,Government,1%,25,97%,98%
+East Doncaster Secondary College,"Doncaster East VIC, Melbourne Eastern Suburbs",20 George St Doncaster East Victoria 3109,Government,16%,33,99%,82%
+Edenbrook Secondary College,"Pakenham VIC, Melbourne Southern Suburbs & Western Port",133 Henry Road Pakenham Victoria 3810,Government,,,,
+Elevation Secondary College,"Craigburn VIC, Melbourne Northern Suburbs",199 Elevation Boulevard Craigburn Victoria 3064,Government,,,,
+Emerald Secondary College,"Emerald VIC, Melbourne Eastern Suburbs",425 Belgrave-Gembrook Rd Emerald Victoria 3782,Government,2%,28,96%,77%
+Emmanuel College,"Warrnambool VIC, Barwon-South Western",37 Ardlie St Warrnambool Victoria 3280,Catholic,5%,29,99%,90%
+Emmanuel College,"Altona North VIC, Melbourne Western Suburbs",2-40 Foxwood Drv Point Cook Victoria 3030,Catholic,5%,28,100%,92%
+F.C.J College Benalla,"Benalla VIC, Goulburn-North Eastern",36 Arundel St Benalla Victoria 3672,Catholic,4%,29,98%,94%
