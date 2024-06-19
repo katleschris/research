@@ -1,127 +1,58 @@
 import requests
 from bs4 import BeautifulSoup
-import csv
+import re
+import pandas as pd
 
-class webCrawler:
-    def start_web_crawler(self, url):
-        try:
-            # Send a GET request to the specified URL
-            web_request = requests.get(url)
-            web_request.raise_for_status()  # Raise an HTTPError for bad responses (4xx and 5xx)
-        except requests.RequestException as e:
-            print(f"Network error occurred: {e}")
-            return []
 
-        try:
-            # Parse the HTML content of the page
-            soup = BeautifulSoup(web_request.text, 'html.parser')
-            
-            # Find the search results div by its ID
-            search_results_div = soup.find("div", {"id": "search-results"})
-            if not search_results_div:
-                print("No search results found.")
-                return []
+pages = range(1, 6)
 
-            school_urls = []
-            # Loop through all rows in the search results
-            for div in search_results_div.find_all("div", {"class": "row"}):
-                try:
-                    # Extract the href attribute from the anchor tag
-                    school_url = div.find("a", href=True)["href"].strip()
-                    school_urls.append(school_url)
-                except AttributeError as e:
-                    print(f"Error extracting URL: {e}")
-                    continue
+school_data = []
 
-            return school_urls
-        except Exception as e:
-            print(f"An error occurred while parsing the page: {e}")
-            return []
-    
-    def get_school_details(self, url):
-        try:
-            # Send a GET request to the school details page
-            web_request = requests.get(url)
-            web_request.raise_for_status()  # Raise an HTTPError for bad responses (4xx and 5xx)
-        except requests.RequestException as e:
-            print(f"Network error occurred: {e}")
-            return None
+for page in pages:
+    url = f'https://www.goodschools.com.au/compare-schools/search/in-victoria/secondary?distance=10km&suburb_in=in-victoria&state_ids%5B0%5D=7&region_ids%5B0%5D=1300&school_level_ids%5B0%5D=1&page={page}'
+    print(f"Retrieving page {page}")
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    search_results_div = soup.find("div", {"id": "search-results"})
+    media_body_div = search_results_div.find_all("div", {"class": "media-body"})
+    school_urls = []
 
-        try:
-            # Parse the HTML content of the page
-            soup = BeautifulSoup(web_request.text, 'html.parser')
-            
-            # Find the main container div
-            container_div = soup.find("main")
-            if not container_div:
-                print("No container div found.")
-                return None
-
-            # Extract school details
-            school_name = container_div.find("h1").text.strip()
-            location = container_div.find("h4").text.strip()
-            sector = container_div.find("p", {"class": "d-inline float-left"}).text.strip()
-            address = container_div.find("span", {"class": "map-address load-address"}).text.strip()
-
-            # Extract academic results
-            academic_results_div = soup.find("div", class_="col-md-6 col-sm-6 col-6")
-            scores_40_plus = academic_results_div.find_all("p")[0].find("span", {"class":"font-weight-bold"}).text.strip()
-            median_score = academic_results_div.find_all("p")[1].find("span", {"class":"font-weight-bold"}).text.strip()
-            vce_completions = academic_results_div.find_all("p")[2].find("span", {"class":"font-weight-bold"}).text.strip()
-            vet_completions = academic_results_div.find_all("p")[3].find("span", {"class":"font-weight-bold"}).text.strip()
-    
-            academic_results = {
-                "Scores of 40+": scores_40_plus,
-                "Median Score": median_score,
-                "Satisfactory completions of VCE": vce_completions,
-                "Satisfactory completions of VET": vet_completions
-            }
-
-            return {"School name": school_name, "Location": location, "Address": address, "Sector": sector, "Academic results": academic_results}
+    for a_tag in media_body_div:
+        school_url = a_tag.find("a", href=True)["href"].strip()
+        school_urls.append(school_url)
         
-        except AttributeError as e:
-            print(f"Error extracting school details: {e}")
-            return None
-        except Exception as e:
-            print(f"An error occurred while parsing the page: {e}")
-            return None
+    for link in school_urls:
+        school_info = {}
+        response = requests.get(link)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        school_info["School Name"] = soup.find("h1").text.strip()
+        school_info["Location"] = soup.find("h4").text.strip()
+        school_info["Address"] = soup.find("span", {"class": "map-address load-address"}).text.strip()
+        school_info["Sector"] = soup.find("p", {"class": "d-inline float-left"}).text.strip()
 
-    def write_to_csv(self, data, filename="schools.csv"):
-        # Define the fields for the CSV
-        fields = ["School name", "Location", "Address", "Sector", "Academic results"]
+        academic_results_div = soup.find("div", class_="col-md-6 col-sm-6 col-6")
         
-        try:
-            # Write the data to a CSV file
-            with open(filename, mode='w', newline='') as file:
-                writer = csv.DictWriter(file, fieldnames=fields)
-                writer.writeheader()
-                writer.writerows(data)
-        except IOError as e:
-            print(f"An error occurred while writing to CSV: {e}")
+        # Check if academic_results_div is not None
+        if academic_results_div:
+            academic_results = academic_results_div.find_all("p")
+            for tag in academic_results:
+                pattern = r":\s*(\S+)"
+                match = re.search(pattern, tag.text)
+                if match:
+                    value = match.group(1)
+                    if 'Scores of 40+' in tag.text:
+                        school_info["Scores of 40+"] = value
+                    if 'Median Score' in  tag.text:
+                        school_info["Median Score"] = value
+                    if 'VCE' in tag.text:
+                        school_info["Satisfactory completions of VCE"] = value
+                    if "VET" in tag.text:
+                        school_info["Satisfactory completions of VET"] = value
 
-class driverClass:
-    @staticmethod
-    def main():
-        print("Inside driver")
-        crawler = webCrawler()
-        
-        # Start the web crawler to get the school URLs
-        school_urls = crawler.start_web_crawler('https://www.goodschools.com.au/compare-schools/search/in-victoria')
-        
-        school_details_list = []
-        # Get details for each school URL
-        for url in school_urls:
-            school_details = crawler.get_school_details(url)
-            if school_details:
-                school_details_list.append(school_details)
-            else:
-                print(f"Skipping URL due to extraction failure: {url}")
-        
-        # Print the list of school details
-        print(school_details_list)
-        
-        # Write the school details to a CSV file
-        crawler.write_to_csv(school_details_list)
+                else:
+                    print("No match found.")
+                    
+        school_data.append(school_info)
 
-if __name__ == "__main__":
-    driverClass.main()
+df = pd.DataFrame(school_data)
+df.to_csv('schools.csv', index=False)
