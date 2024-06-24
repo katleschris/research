@@ -1,0 +1,19 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: #0074D9;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li{
+    margin-bottom: 10px;
+}
+
+strong {
+    font-weight: bold;
+}
