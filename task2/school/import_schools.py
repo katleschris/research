@@ -1,7 +1,7 @@
 # import os
 # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'schoolRecommender.settings')
-from school.models import School
-from school.data import SchoolData
+from models import School
+from data import SchoolData
 import pandas as pd
 
 def import_schools():
