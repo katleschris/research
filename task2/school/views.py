@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import pandas as pd
-from .models import SchoolData
+from models import SchoolData
 
 school_data = SchoolData()
 all_schools = school_data.get_schools_from_csv()

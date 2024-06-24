@@ -1,18 +1,26 @@
 from django.db import models
-
 import pandas as pd
-
-class SchoolData():
-    def __init__(self):
-        self.file_path = 'schools.csv'
-        self.df = pd.read_csv(self.file_path)
-
-    def get_schools_from_csv(self):
-
-        df2 = self.df[['School Name', 'Street', 'Suburb', 'State', 'Postcode',
-            'Postal Street', 'Postal Suburb', 'Postal State', 'Postal Postcode',
-            'Latitude', 'Longitude', 'Phone', 'Education Region',
-            'Broad Classification', 'Classification Group', 'Low Year', 'High Year', 'Total Students', 'BE Score',
-            'ICSEA', 'ATAR Rank', 'Median ATAR','% students with ATAR']].copy()
-        
-        return df2
+class School(models.Model):
+    school_name = models.CharField(max_length=255)
+    street = models.CharField(max_length=255)
+    suburb = models.CharField(max_length=255)
+    state = models.CharField(max_length=255)
+    postcode = models.CharField(max_length=10)
+    postal_street = models.CharField(max_length=255)
+    postal_suburb = models.CharField(max_length=255)
+    postal_state = models.CharField(max_length=255)
+    postal_postcode = models.CharField(max_length=10)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    phone = models.CharField(max_length=20)
+    education_region = models.CharField(max_length=255)
+    broad_classification = models.CharField(max_length=255)
+    classification_group = models.CharField(max_length=255)
+    low_year = models.IntegerField()
+    high_year = models.IntegerField()
+    total_students = models.IntegerField()
+    be_score = models.FloatField()
+    icsea = models.FloatField()
+    atar_rank = models.FloatField()
+    median_atar = models.FloatField()
+    percent_students_with_atar = models.FloatField()
